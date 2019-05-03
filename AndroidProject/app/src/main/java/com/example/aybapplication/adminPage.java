@@ -10,6 +10,7 @@ import android.widget.RadioButton;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.StorageReference;
 
 public class adminPage extends AppCompatActivity {
 
@@ -32,11 +33,18 @@ public class adminPage extends AppCompatActivity {
     private RadioButton xlarge;
 
 
+    private FirebaseDatabase database;
+    private DatabaseReference mref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_page);
 
+        database = FirebaseDatabase.getInstance();
+        mref = database.getReference("https://aybapplication.firebaseio.com");
+        mref.setValue("Hi");
+        //mDatabase = FirebaseDatabase.getInstance().getReference();
         //FirebaseDatabase database = FirebaseDatabase.getInstance();
         //DatabaseReference myRef = database.getReference("https://aybapplication.firebaseio.com");
         //myRef.setValue("Hello");
